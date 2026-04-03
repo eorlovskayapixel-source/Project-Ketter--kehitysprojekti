@@ -3,11 +3,13 @@ import { Answer } from "./models/Answer.js";
 import { Question } from "./models/Question.js";
 import { Course } from "./models/Course.js";
 import { Rule } from "./models/Rule.js";
+import { Level } from "./models/Level.js";
 
 // Import data
 import { courses } from "./data/courses.js";
 import { questions } from "./data/questions.js";
 import { rules } from "./data/rules.js";
+import { levels } from "./data/levels.js";
 
 // Example of user answers
 const userAnswers = [
@@ -20,6 +22,8 @@ const userAnswers = [
 // This function takes the user's selected answers and compares them against all defined rules to find matching courses.
 function findMatchingCourses(userAnswers) {
   const matchedCourses = [];
+  let userLevelId = 0;
+  let userLevel = null;
   // iterate through each rule in the rules array
   for (let i = 0; i < rules.length; i++) {
     const rule = rules[i]; // take the current rule
@@ -53,12 +57,23 @@ function findMatchingCourses(userAnswers) {
       }
     }
     // if all pairs of conditions match and the course of this rule is not yet added to the result, add it
-    if (allMatch && !matchedCourses.includes(rule.course)) {
-      matchedCourses.push(...rule.courses); // add the courses of this rule to the result
+
+    if (allMatch) {
+      if (rule.levelId !== null) {
+        if (userLevelId < rule.levelId) {
+          userLevelId = rule.levelId;
+          userLevel = levels.find((level) => level.id === userLevelId);
+        }
+      }
+      for (const course of rule.courses) {
+        if (!matchedCourses.includes(course)) {
+          matchedCourses.push(course);
+        }
+      }
     }
   }
 
-  return matchedCourses; // return the list of all matching courses
+  return [matchedCourses, userLevel]; // return the list of all matching courses and the user's level
 }
 
 const result = findMatchingCourses(userAnswers);

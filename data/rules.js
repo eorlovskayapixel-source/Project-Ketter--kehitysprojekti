@@ -18,7 +18,11 @@ export const rules = [];
 // Tuentarve = 1 (Kaipaan perustietoa yrittäjyydestä...)
 //
 // → THEN "Minustako yrittäjä, Realistic Business Idea"
-const rule1 = new Rule(1, [courses[2], courses[0]]);
+const rule1 = new Rule({
+  id: 1,
+  courses: [courses[2], courses[0]],
+  levelId: 1,
+});
 rule1.addPair(1, 1); // q1 id=1, answer id=1
 rule1.addPair(2, 1); // q2 id=2, answer id=1
 rule1.addPair(3, 1); // q3 id=3, answer id=1
@@ -37,7 +41,11 @@ rules.push(rule1);
 // Kypsyysaste = 1 (Olen kiinnostunut yrittäjyydestä...)
 // Tuentarve = 2 (Tarvitsen lisää yrittäjyysosaamista...)
 // → "Minustako yrittäjä, Realistic Business Idea, Yrittäjyyden TOP-opinnot"
-const rule2 = new Rule(3, [courses[2], courses[0], courses[4]]);
+const rule2 = new Rule({
+  id: 2,
+  courses: [courses[2], courses[0], courses[4]],
+  levelId: 1,
+});
 rule2.addPair(1, 1); // q1
 rule2.addPair(2, 1); // q2
 rule2.addPair(3, 2); // q3
@@ -56,7 +64,11 @@ rules.push(rule2);
 // Kypsyysaste = 1 (Olen kiinnostunut yrittäjyydestä...)
 // Tuentarve = 2 (Tukea yrityksen perustamiseen)
 // → "Minustako yrittäjä, Realistic Business Idea, Yrittäjyyden TOP-opinnot"
-const rule3 = new Rule(3, [courses[2], courses[0], courses[4]]);
+const rule3 = new Rule({
+  id: 3,
+  courses: [courses[2], courses[0], courses[4]],
+  levelId: 1,
+});
 
 rule3.addPair(1, 1); // q1
 rule3.addPair(2, 1); // q2

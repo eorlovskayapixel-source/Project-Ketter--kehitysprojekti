@@ -13,10 +13,11 @@
 // -------------------------
 
 export class Rule {
-  constructor(id, courses = [], rulePairs = []) {
+  constructor({ id, courses = [], rulePairs = [], levelId = null }) {
     this.id = id;
     this.courses = courses; // Array of Course objects to recommend when the rule matches
     this.rulePairs = rulePairs; // Array of { questionId, answerId }
+    this.levelId = levelId; // The level ID
   }
 
   addPair(questionId, answerId) {
