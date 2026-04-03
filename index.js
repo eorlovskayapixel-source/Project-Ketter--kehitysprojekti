@@ -59,11 +59,10 @@ function findMatchingCourses(userAnswers) {
     // if all pairs of conditions match and the course of this rule is not yet added to the result, add it
 
     if (allMatch) {
-      if (rule.levelId !== null) {
-        if (userLevelId < rule.levelId) {
-          userLevelId = rule.levelId;
-          userLevel = levels.find((level) => level.id === userLevelId);
-        }
+      if (rule.levelId !== null && userLevelId < rule.levelId) {
+        // if the rule has a level defined, check if it's higher than the user's current level and update if necessary
+        userLevelId = rule.levelId;
+        userLevel = levels.find((level) => level.id === userLevelId);
       }
       for (const course of rule.courses) {
         if (!matchedCourses.includes(course)) {

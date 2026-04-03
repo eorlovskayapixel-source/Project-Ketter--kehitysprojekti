@@ -1,4 +1,7 @@
 import { Level } from "../models/Level.js";
+// -------------------------
+//  Mitä korkeampi taso, sitä suurempi sen ID!!!!
+// -------------------------
 export const levels = [
   new Level(1, "1"),
   new Level(2, "2"),
