@@ -75,3 +75,18 @@ rule3.addPair(2, 1); // q2
 rule3.addPair(3, 3); // q3
 
 rules.push(rule3);
+
+//-------------------------
+// 4. Jos [ status = Tutkinto-opiskelija] ja [Kypsyysaste = olen kiinnostunut yrittäjyydestä, mutta minulla ei ole vielä ideaa]
+// ja / tai [Tuentarve =Tarvitsen myyntikanavan tuotteilleni.] - 4 -,
+// Taituri-verkkokauppa - 6 -
+// -------------------------
+const rule4 = new Rule({
+  id: 4,
+  courses: [courses[5]],
+});
+rule4.addPair(1, 1); // q1
+rule4.addPair(2, 1); // q2
+rule4.addPair(3, 4); // q3
+
+rules.push(rule4);

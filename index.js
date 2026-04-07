@@ -16,7 +16,7 @@ const userAnswers = [
   { questionId: 1, answerId: 1 },
   { questionId: 2, answerId: 1 },
   { questionId: 3, answerId: 1 },
-  { questionId: 3, answerId: 2 },
+  { questionId: 3, answerId: 4 },
 ];
 
 // This function takes the user's selected answers and compares them against all defined rules to find matching courses.

@@ -5,8 +5,10 @@
 // Example of a course: "Realistic Business Idea"
 // -------------------------
 export class Course {
-  constructor(id, title) {
+  constructor({ id, title, description = "", link = "" }) {
     this.id = id;
     this.title = title; // Display name of the course shown to the user
+    this.description = description; // A brief description of the course content (optional, can be added later)
+    this.link = link; // A URL link to the course page or more information (optional, can be added later)
   }
 }
