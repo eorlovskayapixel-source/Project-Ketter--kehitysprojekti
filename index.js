@@ -18,7 +18,7 @@ const userAnswers = [
   { questionId: 3, answerId: 1 },
   { questionId: 3, answerId: 4 },
 ];
-//Hello
+//Hello Volodja!
 // This function takes the user's selected answers and compares them against all defined rules to find matching courses.
 function findMatchingCourses(userAnswers) {
   const matchedCourses = [];
